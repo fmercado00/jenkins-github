@@ -31,7 +31,7 @@ pipeline {
     stage('Publish') {
       steps {
         script {
-          docker.withRegistry("", "Docker Cred Integration") {
+          docker.withRegistry("", "DockerCredIntegration") {
             dockerImage.push()
           }
         }
