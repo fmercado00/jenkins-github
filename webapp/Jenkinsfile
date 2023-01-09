@@ -29,9 +29,6 @@ pipeline {
       }
     }
     stage('Publish') {
-      when {
-        branch 'origin/main'
-      }
       steps {
         script {
           docker.withRegistry("", "57caa52c-3d4a-412f-8f0c-eaa38b4588e8") {
@@ -41,9 +38,6 @@ pipeline {
       }
     }
     stage('Schedule Staging Deployment') {
-      when {
-        branch 'origin/main'
-      }
       steps {
         build job: 'deploy-webapp-staging', parameters: [string(name: 'ARTIFACT_ID', value: "${env.ARTIFACT_ID}")], wait: false
       }
