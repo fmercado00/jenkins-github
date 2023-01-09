@@ -5,6 +5,10 @@ pipeline {
     timeout(time: 2, unit: 'MINUTES')
   }
 
+  // environment {
+  //   ARTIFACT_ID = "elbuo8/webapp:${env.BUILD_NUMBER}"
+  // }
+
   environment {
     ARTIFACT_ID = "fmercado00/webapp:${env.BUILD_NUMBER}"
   }
